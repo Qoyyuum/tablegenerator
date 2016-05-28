@@ -3,21 +3,41 @@
 
 <head>
   <title>Table Generator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script src="tableGen.js"></script>
 </head>
 
 <body>
-  <h1>Table Generator</h1>
-  <p>Because writing table codes is too mainstream</p>
-  <p></p>
-  How Many Columns and Rows?<br />
-  <label># of Columns: <br><input type="text" name="y" id="y" value="" /></label>
-  <p></p>
-  <label># of Rows: <br><input type="text" name="x" id="x" value="" /></label>
-  <p></p>
-  <input type="submit" value="Submit" onClick="preHTML()" />
-  <div id="output"></div>
-  <div id="htmlCode"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Table Generator</h1>
+        <p>Because writing table codes is too mainstream</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        How Many Columns and Rows?<br />
+        <label># of Columns: <br><input type="text" name="y" id="y" value="" /></label>
+        <p></p>
+        <label># of Rows: <br><input type="text" name="x" id="x" value="" /></label>
+        <p></p>
+        <input type="submit" value="Submit" onClick="preHTML()" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="output"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div id="htmlCode"></div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

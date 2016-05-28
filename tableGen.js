@@ -14,7 +14,7 @@ function genXY() {
 }
 
 function preHTML() {
-  t += "<table><tbody>";
+  t += "<table class='table table-bordered'><tbody>";
   genRows();
   t += "</tbody></table><br />";
   t += rawTable;
