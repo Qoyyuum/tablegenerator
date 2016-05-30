@@ -5,6 +5,7 @@ var tRs = "<tr>";
 var tRe = "</tr>";
 var tCs = "<td>";
 var tCe = "</td>";
+var exportTable = "";
 
 function genXY() {
   var cols = D.getElementById('y').value;
@@ -19,6 +20,7 @@ function preHTML() {
   t += "</tbody></table><br />";
   t += rawTable;
   D.getElementById('output').innerHTML = t;
+  exportTable += String(t);
 }
 
 function genCols() {
@@ -40,5 +42,5 @@ function genRows() {
 }
 
 function spitCode() {
-  D.getElementById('htmlCode').innerHTML = "This is where HTML Code will be for the Table";
+  D.getElementById('htmlCode').innerHTML = exportTable;
 }
