@@ -12,12 +12,13 @@ let app = new Vue({
   methods: {
     preHTML() {
       this.tableString = "";
-      this.tableString += "<table class='table is-bordered is-fullwidth'><tbody>";
+      this.tableString += "<table class='table is-bordered is-fullwidth'>";
       if (this.header) {
         this.tableString += "<thead>";
           this.genCols(true)
           this.tableString += "</thead>";
         }
+      this.tableString += "<tbody>";
       this.genRows();
       this.tableString += "</tbody></table>";
     },
