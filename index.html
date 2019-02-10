@@ -6,78 +6,79 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css'/>
 
   <style>
-  #htmlCode {
-    width: 100%;
-    height: 150px;
+  .Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
   }
-  .fix-footer {
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-    overflow:hidden;
+
+  .Site-content {
+    flex: 1;
+    margin-bottom: 2em;
   }
   </style>
 </head>
 
 <body>
-  <div id="app">
-    <section class="hero is-primary">
-      <div class="hero-body">
-        <div class="container">
-          <h1 class="title">
-            Table Generation
-          </h1>
-          <h2 class="subtitle">
-            Because writing table codes is too mainstream
-          </h2>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="columns">
-        <div class="column is-12">
+  <div id="app" class="Site">
+    <div class="Site-content">
+      <section class="hero is-primary">
+        <div class="hero-body">
           <div class="container">
-            <div class="card">
-              <div class="card-header">
-                <div class="card-header-title">
-                  <h3 class="is-size-3">How many columns and rows?</h3>
-                </div>
-              </div>
-              <div class="card-content">
-                <div class="columns">
-                  <div class="column is-12">
-                    <label class="checkbox">
-                      <input type="checkbox" v-model="header" @change="preHTML">
-                      include Header
-                    </label>
+            <h1 class="title">
+              Table Generation
+            </h1>
+            <h2 class="subtitle">
+              Because writing table codes is too mainstream
+            </h2>
+          </div>
+        </div>
+      </section>
+  
+      <section class="section">
+        <div class="columns">
+          <div class="column is-12">
+            <div class="container">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-header-title">
+                    <h3 class="is-size-3">How many columns and rows?</h3>
                   </div>
                 </div>
-                <div class="columns">
-                  <div class="column is-6">
-                    <label for="columns" class="label">Columns</label>
-                    <div class="field"><input type="number" class="input" v-model="columns" @keyup="preHTML"></div>
+                <div class="card-content">
+                  <div class="columns">
+                    <div class="column is-12">
+                      <label class="checkbox">
+                        <input type="checkbox" v-model="header" @change="preHTML">
+                        include Header
+                      </label>
+                    </div>
                   </div>
-                  <div class="column is-6">
-                    <label for="rows" class="label">Rows</label>
-                    <div class="field"><input type="number" class="input" v-model="rows" @keyup="preHTML"></div>
+                  <div class="columns">
+                    <div class="column is-6">
+                      <label for="columns" class="label">Columns</label>
+                      <div class="field"><input type="number" class="input" v-model="columns" @keyup="preHTML"></div>
+                    </div>
+                    <div class="column is-6">
+                      <label for="rows" class="label">Rows</label>
+                      <div class="field"><input type="number" class="input" v-model="rows" @keyup="preHTML"></div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container" v-if="rows !== '' && columns !== ''">
-        <h4 class="is-size-4 has-text-centered">Preview Table</h4>
-        <div v-html="tableString"></div>
-        <br>
-        <button class="button is-primary" @click="openInNewTab">Open in new tab for source code</button>
-      </div>
-    </section>
+      </section>
+      <section>
+        <div class="container" v-if="rows !== '' && columns !== ''">
+          <h4 class="is-size-4 has-text-centered">Preview Table</h4>
+          <div v-html="tableString"></div>
+          <br>
+          <button class="button is-primary" @click="openInNewTab">Open in new tab for source code</button>
+        </div>
+      </section>
+    </div>
     <footer class="footer fix-footer">
       <div class="content has-text-centered">
         <p>
