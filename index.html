@@ -3,41 +3,95 @@
 
 <head>
   <title>Table Generator</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link rel="stylesheet" href="cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-  <script src="tableGen.js"></script>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.css'/>
+
+  <style>
+  .Site {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  .Site-content {
+    flex: 1;
+    margin-bottom: 2em;
+  }
+  </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Table Generator</h1>
-        <p>Because writing table codes is too mainstream</p>
-      </div>
+  <div id="app" class="Site">
+    <div class="Site-content">
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Table Generation
+            </h1>
+            <h2 class="subtitle">
+              Because writing table codes is too mainstream
+            </h2>
+          </div>
+        </div>
+      </section>
+  
+      <section class="section">
+        <div class="columns">
+          <div class="column is-12">
+            <div class="container">
+              <div class="card">
+                <div class="card-header">
+                  <div class="card-header-title">
+                    <h3 class="is-size-3">How many columns and rows?</h3>
+                  </div>
+                </div>
+                <div class="card-content">
+                  <div class="columns">
+                    <div class="column is-12">
+                      <label class="checkbox">
+                        <input type="checkbox" v-model="header" @change="preHTML">
+                        include Header
+                      </label>
+                    </div>
+                  </div>
+                  <div class="columns">
+                    <div class="column is-6">
+                      <label for="columns" class="label">Columns</label>
+                      <div class="field"><input type="number" class="input" v-model="columns" @keyup="preHTML"></div>
+                    </div>
+                    <div class="column is-6">
+                      <label for="rows" class="label">Rows</label>
+                      <div class="field"><input type="number" class="input" v-model="rows" @keyup="preHTML"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="container" v-if="rows !== '' && columns !== ''">
+          <h4 class="is-size-4 has-text-centered">Preview Table</h4>
+          <div v-html="tableString"></div>
+          <br>
+          <button class="button is-primary" @click="openInNewTab">Open in new tab for source code</button>
+        </div>
+      </section>
     </div>
-    <div class="row">
-      <div class="col-md-12">
-        How Many Columns and Rows?<br />
-        <label># of Columns: <br><input type="text" name="y" id="y" value="" /></label>
-        <p></p>
-        <label># of Rows: <br><input type="text" name="x" id="x" value="" /></label>
-        <p></p>
-        <input type="submit" value="Submit" onClick="preHTML()" />
+    <footer class="footer fix-footer">
+      <div class="content has-text-centered">
+        <p>
+          Written with ❤ by Bruneians
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+        </p>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="output"></div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div id="htmlCode"></div>
-      </div>
-    </div>
+    </footer>
+
   </div>
+  <script src='vue.js'></script>
+  <script src="tableGen.js"></script>
 </body>
 
 </html>

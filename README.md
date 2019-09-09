@@ -4,14 +4,11 @@ This is a simple HTML Table Code Generator.
 
 ## The Story
 
-Several times when I was building up a simple HTML table for clients, I am forced to write up a lot of <tr>'s and <td>'s. Especially when they have a lot of content to fill in to different cells, rows and columns. I think everyone who writes HTML tables know how I feel about it. So I decided to write up a simple web application that generates the rows and columns and I'll fill in the content later.
+Several times when I was building up a simple HTML table for clients, I am forced to write up a lot of ```<tr>```'s and ```<td>```'s. Especially when they have a lot of content to fill in to different cells, rows and columns. I think everyone who writes HTML tables know how I feel about it. So I decided to write up a simple web application that generates the rows and columns and I'll fill in the content later.
 
 ## Pipeline
 
-A few things to add into this webapp:
-
-* Add Editor like ability to each table cell for anyone to add images, bold, italic, underline, strikethrough, etc.
-* Add table styling base on CSS Framework like Twitter Bootstrap, Foundation 4, Skeleton, etc.
+May find that the web application is available on [https://qoyyuum.github.io/tablegenerator/](https://qoyyuum.github.io/tablegenerator/) and for future development, any new feature or suggestion will be tracked by ["Issues"](https://github.com/Qoyyuum/tablegenerator/issues/) of this repo. 
 
 ## License
 

@@ -1,44 +1,55 @@
-var D = document;
-var t = "<h1>Enter Table Cells</h1>";
-var rawTable = "<input type='submit' value='Generate Table Code' onClick='spitCode()' />";
-var tRs = "<tr>";
-var tRe = "</tr>";
-var tCs = "<td>";
-var tCe = "</td>";
-
-function genXY() {
-  var cols = D.getElementById('y').value;
-  var rows = D.getElementById('x').value;
-  D.getElementById('output').innerHTML = cols + " and " + rows;
-  preHTML();
-}
-
-function preHTML() {
-  t += "<table class='table table-bordered'><tbody>";
-  genRows();
-  t += "</tbody></table><br />";
-  t += rawTable;
-  D.getElementById('output').innerHTML = t;
-}
-
-function genCols() {
-  var cols = D.getElementById('y').value;
-  for (var i = 0; i < cols; i++) {
-    t += tCs;
-    t += "<input type='text' />";
-    t += tCe;
+//Check if input is a number or not.
+let app = new Vue({
+  el: "#app",
+  data() {
+    return {
+      columns: '',
+      rows: '',
+      tableString: '',
+      header: false
+    }
+  },
+  methods: {
+    preHTML() {
+      this.tableString = "";
+      this.tableString += "<table class='table is-bordered is-fullwidth'>";
+      if (this.header) {
+        this.tableString += "<thead>";
+          this.genCols(true)
+          this.tableString += "</thead>";
+        }
+      this.tableString += "<tbody>";
+      this.genRows();
+      this.tableString += "</tbody></table>";
+    },
+    genRows() {
+      for (let i = 0; i < this.rows; i++) {
+        this.tableString += "<tr>";
+        this.genCols();
+        this.tableString += "</tr>";
+      }
+    },
+    genCols(header) {
+      for (let i = 0; i < this.columns; i++) {
+        if(header) {
+          this.tableString += "<th>";
+          this.tableString += "Header Title";
+          this.tableString += "</th>";
+        } else {
+          this.tableString += "<td>";
+          this.tableString += "<input class='input' type='text' />";
+          this.tableString += "</td>";
+        }
+      }
+    },
+    changeValue() {
+      this.preHTML()
+    },
+    openInNewTab() {
+      let newWindow = window.open("about:blank");
+      let string = '<pre>' + this.tableString.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>';
+      newWindow.document.write(string)
+      newWindow.document.close()
+    }
   }
-}
-
-function genRows() {
-  var rows = D.getElementById('x').value;
-  for (var i = 0; i < rows; i++) {
-    t += tRs;
-    genCols();
-    t += tRe;
-  }
-}
-
-function spitCode() {
-  D.getElementById('htmlCode').innerHTML = "This is where HTML Code will be for the Table";
-}
+})
