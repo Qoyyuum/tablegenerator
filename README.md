@@ -8,11 +8,7 @@ Several times when I was building up a simple HTML table for clients, I am force
 
 ## Pipeline
 
-A few things to add into this webapp:
-
-* Add Editor like ability to each table cell for anyone to add images, bold, italic, underline, strikethrough, etc.
-* Add table styling base on CSS Framework like Twitter Bootstrap, Foundation 4, Skeleton, etc.
-* Make this a better interface for everyone to use.
+May find that the web application is available on [https://qoyyuum.github.io/tablegenerator/](https://qoyyuum.github.io/tablegenerator/) and for future development, any new feature or suggestion will be tracked by ["Issues"](https://github.com/Qoyyuum/tablegenerator/issues/) of this repo. 
 
 ## License
 
