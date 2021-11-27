@@ -4,7 +4,8 @@
   "description": "This is a simple HTML Table Code Generator.",
   "main": "tableGen.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Qoyyuum/tablegenerator/issues"
   },
-  "homepage": "https://github.com/Qoyyuum/tablegenerator#readme"
+  "homepage": "https://github.com/Qoyyuum/tablegenerator#readme",
+  "devDependencies": {
+    "cypress": "^9.1.0"
+  }
 }
