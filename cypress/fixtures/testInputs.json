@@ -1,0 +1,30 @@
+{
+  "valid": [
+    {
+      "rows": 2,
+      "columns": 2
+    },
+    {
+      "rows": 4,
+      "columns": 2
+    },
+    {
+      "rows": 6,
+      "columns": 3
+    }
+  ],
+  "invalid": [
+    {
+      "rows": 0,
+      "columns": 0
+    },
+    {
+      "rows": -1,
+      "columns": 2
+    },
+    {
+      "rows": 3,
+      "columns": -4
+    }
+  ]
+}
