@@ -23,3 +23,24 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('enter', ({ field, value }) => {
+  cy.get(element(field))
+    .type(value)
+})
+Cypress.Commands.add('assertRow', ({ expectedLength }) => {
+  cy.get('table')
+    .find('tr')
+    .should('have.length', expectedLength)
+})
+Cypress.Commands.add('assertColumn', ({ expectedLength }) => {
+  cy.get('table')
+    .find('tr')
+    .first()
+    .find('td')
+    .should('have.length', expectedLength)
+})
+
+function element(name) {
+  return `[data-test="${name}"]`
+}
