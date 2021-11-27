@@ -1,0 +1,19 @@
+{
+  "name": "tablegenerator",
+  "version": "1.0.0",
+  "description": "This is a simple HTML Table Code Generator.",
+  "main": "tableGen.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Qoyyuum/tablegenerator.git"
+  },
+  "author": "Qoyyuum",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Qoyyuum/tablegenerator/issues"
+  },
+  "homepage": "https://github.com/Qoyyuum/tablegenerator#readme"
+}
